@@ -4,12 +4,6 @@ set -eux
 
 containerName="deploy-go"
 
-if [[ -n $(docker ps -q -f "name=^${containerName}$") ]]; then
-    echo "container exist"
-else
-    echo "container not exist"
-fi
-
 if [[ -z $(docker ps -q -f "name=^${containerName}$") ]]; then
     echo "container not exist"
 else
