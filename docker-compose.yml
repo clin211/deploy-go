@@ -1,0 +1,21 @@
+version: '3.1'
+ 
+services:
+  services:
+    image: forest211/deploy-go:latest
+    restart: always
+    container_name: 'deploy-go'
+    ports:
+      - 15005:8080
+
+  # forest:
+  #   image: forest211/forest
+  #   restart: always
+  #   container_name: 'forest'
+  #   ports:
+  #     - 15006:3000
+
+networks:
+  default:
+    external:
+      name: https
