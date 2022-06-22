@@ -105,9 +105,7 @@ func main() {
 			c.JSON(200, gin.H{
 				"code":    http.StatusOK,
 				"message": "success",
-				"data": gin.H{
-					"content": data,
-				},
+				"data":    data,
 			})
 		} else {
 			c.JSON(200, gin.H{
