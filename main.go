@@ -307,10 +307,10 @@ func main() {
 
 	// 资源列表
 	type ResourceItem struct {
-		Name        string `json:"nickname"`
-		Cover       string `json:"time"`
-		Link        string `json:"content"`
-		Description string `json:"avatar"`
+		Name        string `json:"name"`
+		Cover       string `json:"cover"`
+		Link        string `json:"link"`
+		Description string `json:"description"`
 	}
 	type Resource struct {
 		Title string         `json:"title"`
