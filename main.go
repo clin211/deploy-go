@@ -4,6 +4,8 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
 	"strconv"
 
 	"github.com/gin-contrib/cors"
@@ -84,7 +86,21 @@ func main() {
 
 	r.GET("/api/v1/article/detail/:id", func(c *gin.Context) {
 		id, _ := strconv.Atoi(c.Param("id"))
-		if id <= 3 {
+		var count int
+		err := filepath.Walk("./docs", func(filename string, file os.FileInfo, err error) error {
+			if file.IsDir() {
+				return nil
+			}
+			count++
+			return nil
+		})
+		if err != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"code":    http.StatusInternalServerError,
+				"message": "系统错误",
+			})
+		}
+		if id <= count {
 			var content, path string
 
 			switch id {
