@@ -94,6 +94,10 @@ func main() {
 				path = "./docs/base.md"
 			case 3:
 				path = "./docs/nuxt.md"
+			case 4:
+				path = "./docs/blog-sql.md"
+			default:
+				path = "./docs/dart-entry.md"
 			}
 			bytes, err := ioutil.ReadFile(path)
 			if err != nil {
